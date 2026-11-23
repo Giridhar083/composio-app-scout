@@ -1,18 +1,45 @@
-# AppScout (100% free-tier)
-Keys: Gemini (free) -> aistudio.google.com/apikey ; Composio -> dashboard Settings > API Keys (docs.composio.dev)
-1. `pip install requests composio`
-2. `export GEMINI_API_KEY=... COMPOSIO_API_KEY=...`
-2b. `python scout.py probe`  (confirms the Composio search call works; if args/slug differ, set SEARCH_SLUG or edit `search()`)
-3. `python scout.py research`  -> pass1.json (search + schema extraction; saves after every app, re-run to resume)
-4. `python scout.py sample`    -> gold.csv; fill ~20 rows BY HAND from official docs (human ground truth)
-5. `python scout.py score`     -> pass1 accuracy (the "before")
-6. `python scout.py verify`    -> pass2.json (skeptical re-check with full cited pages + fresh searches)
-7. `python scout.py score`     -> pass1 vs pass2 vs gold (the "after")
-8. `python scout.py patterns`  -> patterns.json
-Free-tier limits: if you hit daily quota, stop and re-run tomorrow (resume skips finished apps), or raise PAUSE.
-Manually re-check every `low_confidence` app and every pass1/pass2 disagreement; log them as "human needed".
-9. `python scout.py bundle`    -> index.html (the case-study page with your real data inlined; deploy on GitHub Pages/Netlify/Vercel)
-   Optional: notes.json = list of strings describing apps that defeated the agent and what you did by hand.
-10. `python scout.py serve`    -> runnable trigger: GET /research?app=Linear[&verify=1]; also serves index.html. Deploy on Render/Railway/Fly (set the 2 API keys as env vars).
-Optional browser loop: `pip install playwright && playwright install chromium` (verifier falls back to a headless browser when a cited page is JS-rendered/empty).
-Deterministic checks (no LLM): enum/schema validation, evidence URLs must come from real search results, cited pages must load and mention the app.
+# AppScout — Automated Agent Toolkit Research & Verification Pipeline
+
+**Live Case Study:** [giridhar083.github.io/composio-app-scout](https://giridhar083.github.io/composio-app-scout/)  
+**Repository:** [github.com/Giridhar083/composio-app-scout](https://github.com/Giridhar083/composio-app-scout)
+
+AppScout is an end-to-end research, verification, and benchmarking pipeline built on free-tier APIs (Gemini + Composio) to evaluate **100 SaaS & developer apps** for AI agent toolkit buildability. It extracts authentication methods, self-serve access gates, API surfaces, MCP server availability, rate limits, and buildability verdicts—then audits its own claims against retrieved source pages and a 20-app human-verified gold standard.
+
+---
+
+## Architecture & Pipeline Stages
+
+1. **Search (`scout.py research`)** — Runs targeted queries per app covering authentication docs, self-serve access/pricing tiers, and official/community MCP servers via Composio.
+2. **Structured Extraction** — Uses Gemini to synthesize only retrieved sources into a strict JSON schema (`pass1.json`), checkpointing after every app so runs are safely resumable.
+3. **Deterministic Guardrails** — Enforces enum/schema validation, strips hallucinated evidence URLs not present in retrieved search results, and downgrades confidence when citations are dropped.
+4. **Skeptical Verification (`scout.py verify`)** — Re-fetches cited URLs via HTTP (falling back to headless Playwright/Chromium for JS-rendered pages), verifies page load and app mentions, runs fresh confirmation searches, and produces `pass2.json`.
+5. **Human Ground Truth & Scoring (`scout.py sample` / `score`)** — Evaluates `pass1.json` and `pass2.json` accuracy against `gold.csv`, a 20-app sample manually audited against official documentation.
+6. **Pattern Aggregation & Static Bundle (`scout.py patterns` / `bundle`)** — Generates cross-category insights (`patterns.json`), machine-readable summaries (`llms.txt`), and a self-contained static web report (`index.html`).
+
+---
+
+## Repository Artifacts
+
+| File | Description |
+| :--- | :--- |
+| `scout.py` | Core CLI pipeline: `probe`, `research`, `sample`, `score`, `verify`, `patterns`, `bundle`, and `serve` |
+| `page_template.html` | HTML/CSS/JS template used to compile the interactive case study |
+| `index.html` | Self-contained static web report with inlined dataset, filters, charts, and verification metrics |
+| `pass1.json` | Initial agent extraction results across 100 apps |
+| `pass2.json` | Post-verification dataset with source-check diagnostics and field-level audit logs |
+| `gold.csv` | 20-app hand-verified ground truth dataset |
+| `score.json` | Before-vs-after accuracy metrics comparing `pass1` and `pass2` against `gold.csv` |
+| `patterns.json` | Aggregated ecosystem findings (auth distribution, blockers, self-serve access, MCP adoption) |
+| `llms.txt` | Concise, machine-readable dataset summary for LLM consumption |
+
+---
+
+## Quickstart & Local Setup
+
+### 1. Prerequisites & API Keys
+* **Gemini API Key (Free Tier):** Obtain from [Google AI Studio](https://aistudio.google.com/apikey)
+* **Composio API Key:** Obtain from [Composio Dashboard](https://app.composio.dev) under **Settings → API Keys**
+
+### 2. Installation
+```bash
+pip install requests composio
