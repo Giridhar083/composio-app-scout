@@ -1,0 +1,8 @@
+# AppScout
+> Research of 100 apps for agent-toolkit feasibility (auth, access, API, MCP, verdict) with evidence URLs.
+
+- [pass2.json](pass2.json): verified records, one per app (schema in scout.py FIELDS)
+- [pass1.json](pass1.json): first-pass records
+- [score.json](score.json): hand-checked accuracy, first pass vs verified, with misses
+- [patterns.json](patterns.json): clusters and counts
+- Trigger: GET /research?app=NAME[&verify=1] on `python scout.py serve`

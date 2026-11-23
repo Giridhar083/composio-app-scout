@@ -1,0 +1,1757 @@
+[
+ {
+  "id": "3",
+  "name": "Pipedrive",
+  "listed_category": "CRM and Sales",
+  "hint": "pipedrive.com",
+  "category": "CRM",
+  "one_liner": "Pipedrive is a sales\u2011focused CRM with a REST API, OAuth 2.0 and API key authentication, and a free developer sandbox.",
+  "auth": [
+   "api_key",
+   "oauth2"
+  ],
+  "self_serve": "trial",
+  "gate_detail": "API access in production requires a paid plan; a free sandbox is available for development and testing.",
+  "api": {
+   "type": "REST",
+   "breadth": "broad",
+   "docs_public": true
+  },
+  "mcp": {
+   "status": "unknown",
+   "url": null
+  },
+  "rate_limits": "unknown",
+  "webhooks": "unknown",
+  "sandbox": "yes",
+  "verdict": "yes",
+  "blocker": "paid_plan",
+  "blocker_detail": "Production API usage requires a paid Pipedrive plan; sandbox is free for dev/test.",
+  "evidence": [
+   {
+    "field": "category",
+    "url": "https://pipedrive.com"
+   },
+   {
+    "field": "one_liner",
+    "url": "https://pipeline.zoominfo.com/sales/pipedrive-api"
+   },
+   {
+    "field": "auth",
+    "url": "https://pipeline.zoominfo.com/sales/pipedrive-api"
+   },
+   {
+    "field": "self_serve",
+    "url": "https://pipedrive.com"
+   },
+   {
+    "field": "gate_detail",
+    "url": "https://pipeline.zoominfo.com/sales/pipedrive-api"
+   },
+   {
+    "field": "api",
+    "url": "https://developers.pipedrive.com/docs/api/v1/Oauth"
+   },
+   {
+    "field": "sandbox",
+    "url": "https://pipeline.zoominfo.com/sales/pipedrive-api"
+   },
+   {
+    "field": "verdict",
+    "url": "https://pipeline.zoominfo.com/sales/pipedrive-api"
+   },
+   {
+    "field": "blocker",
+    "url": "https://pipeline.zoominfo.com/sales/pipedrive-api"
+   },
+   {
+    "field": "blocker_detail",
+    "url": "https://pipeline.zoominfo.com/sales/pipedrive-api"
+   }
+  ],
+  "confidence": "high",
+  "dropped_evidence": 0,
+  "schema_issues": [],
+  "checks": {
+   "category": "supported",
+   "one_liner": "supported",
+   "auth": "supported",
+   "self_serve": "supported",
+   "gate_detail": "supported",
+   "api": "supported",
+   "mcp": "unverifiable",
+   "rate_limits": "unverifiable",
+   "webhooks": "unverifiable",
+   "sandbox": "supported",
+   "verdict": "supported",
+   "blocker": "supported",
+   "blocker_detail": "supported"
+  },
+  "changes": [
+   "Updated mcp status to unknown due to lack of source",
+   "Updated rate_limits to unknown due to lack of source",
+   "Updated webhooks to unknown due to lack of source",
+   "Confirmed sandbox availability from ZoomInfo"
+  ],
+  "evidence_check": {
+   "urls": 4,
+   "loaded": 4,
+   "browser_used": 0,
+   "mention_app": 4
+  },
+  "verified": true
+ },
+ {
+  "id": "4",
+  "name": "Attio",
+  "listed_category": "CRM and Sales",
+  "hint": "attio.com",
+  "category": "CRM",
+  "one_liner": "Attio is a CRM platform that provides a REST API with OAuth 2.0 and API key authentication",
+  "auth": [
+   "oauth2",
+   "api_key",
+   "bearer_token"
+  ],
+  "self_serve": "free",
+  "gate_detail": "Any developer can register an app in Attio's developer console",
+  "api": {
+   "type": "REST",
+   "breadth": "broad",
+   "docs_public": true
+  },
+  "mcp": {
+   "status": "official",
+   "url": "https://docs.attio.com/mcp/overview"
+  },
+  "rate_limits": "Read 100/s, Write 25/s",
+  "webhooks": "yes",
+  "sandbox": "unknown",
+  "verdict": "yes",
+  "blocker": "none",
+  "blocker_detail": "",
+  "evidence": [
+   {
+    "field": "category",
+    "url": "https://attio.com"
+   },
+   {
+    "field": "one_liner",
+    "url": "https://docs.attio.com/rest-api/guides/authentication"
+   },
+   {
+    "field": "auth",
+    "url": "https://docs.attio.com/rest-api/guides/authentication"
+   },
+   {
+    "field": "self_serve",
+    "url": "https://attio.com"
+   }
+  ],
+  "confidence": "high",
+  "dropped_evidence": 0,
+  "schema_issues": [],
+  "evidence_check": {
+   "urls": 3,
+   "loaded": 3,
+   "browser_used": 0,
+   "mention_app": 3
+  },
+  "verified": true
+ },
+ {
+  "id": "5",
+  "name": "Twenty",
+  "listed_category": "CRM and Sales",
+  "hint": "twenty.com open-source CRM",
+  "category": "CRM",
+  "one_liner": "Twenty is an open-source CRM that provides API access for developers",
+  "auth": [
+   "api_key",
+   "oauth2"
+  ],
+  "self_serve": "unknown",
+  "gate_detail": "No manual setup needed for dynamic client registration",
+  "api": {
+   "type": "REST",
+   "breadth": "broad",
+   "docs_public": true
+  },
+  "mcp": {
+   "status": "official",
+   "url": "https://docs.twenty.com/developers/extend/oauth"
+  },
+  "rate_limits": "unknown",
+  "webhooks": "yes",
+  "sandbox": "yes",
+  "verdict": "yes",
+  "blocker": "none",
+  "blocker_detail": "",
+  "evidence": [
+   {
+    "field": "API access",
+    "url": "https://docs.twenty.com/developers/extend/api"
+   },
+   {
+    "field": "Dynamic client registration",
+    "url": "https://docs.twenty.com/developers/extend/oauth"
+   }
+  ],
+  "confidence": "high",
+  "dropped_evidence": 0,
+  "schema_issues": [],
+  "evidence_check": {
+   "urls": 3,
+   "loaded": 3,
+   "browser_used": 0,
+   "mention_app": 3
+  },
+  "verified": true
+ },
+ {
+  "id": "7",
+  "name": "Zoho CRM",
+  "listed_category": "CRM and Sales",
+  "hint": "zoho.com/crm",
+  "category": "CRM",
+  "one_liner": "Zoho CRM provides a REST API with OAuth 2.0 authentication for developers to integrate with the platform.",
+  "auth": [
+   "oauth2"
+  ],
+  "self_serve": "free",
+  "gate_detail": "unknown",
+  "api": {
+   "type": "REST",
+   "breadth": "medium",
+   "docs_public": true
+  },
+  "mcp": {
+   "status": "official",
+   "url": "https://www.zoho.com/crm/developer/docs/api/v8/oauth-overview.html"
+  },
+  "rate_limits": "unknown",
+  "webhooks": "unknown",
+  "sandbox": "unknown",
+  "verdict": "yes",
+  "blocker": "none",
+  "blocker_detail": "",
+  "evidence": [
+   {
+    "field": "auth",
+    "url": "https://www.zoho.com/crm/developer/docs/api/v8/oauth-overview.html"
+   },
+   {
+    "field": "api",
+    "url": "https://www.zoho.com/crm/developer/docs/api/v8/oauth-overview.html"
+   },
+   {
+    "field": "mcp",
+    "url": "https://www.zoho.com/crm/developer/docs/api/v8/oauth-overview.html"
+   },
+   {
+    "field": "one_liner",
+    "url": "https://www.zoho.com/crm/developer/docs/api/v8/oauth-overview.html"
+   }
+  ],
+  "confidence": "medium",
+  "dropped_evidence": 0,
+  "schema_issues": [],
+  "evidence_check": {
+   "urls": 3,
+   "loaded": 3,
+   "browser_used": 0,
+   "mention_app": 3
+  },
+  "verified": true
+ },
+ {
+  "id": "8",
+  "name": "Close",
+  "listed_category": "CRM and Sales",
+  "hint": "close.com",
+  "category": "CRM and Sales",
+  "one_liner": "Close is a sales CRM with built-in calling, SMS, email, automation, and AI features",
+  "auth": [
+   "api_key",
+   "oauth2"
+  ],
+  "self_serve": "free",
+  "gate_detail": "API keys can be created and managed in your Close account under Settings \u2192 Developer \u2192 API Keys, but OAuth 2.0 requires self\u2011onboarding",
+  "api": {
+   "type": "REST",
+   "breadth": "broad",
+   "docs_public": true
+  },
+  "mcp": {
+   "status": "official",
+   "url": "https://mcp.close.com"
+  },
+  "rate_limits": "unknown",
+  "webhooks": "yes",
+  "sandbox": "unknown",
+  "verdict": "yes",
+  "blocker": "none",
+  "blocker_detail": "OAuth 2.0 requires self\u2011onboarding; API keys are scoped to a particular user/organization and can be generated and deleted in the Settings page",
+  "evidence": [
+   {
+    "field": "category",
+    "url": "https://close.com"
+   },
+   {
+    "field": "one_liner",
+    "url": "https://close.com"
+   },
+   {
+    "field": "auth",
+    "url": "https://developer.close.com/api/overview/api-key-authentication"
+   },
+   {
+    "field": "auth",
+    "url": "https://developer.close.com/api/overview/oauth-authentication"
+   },
+   {
+    "field": "self_serve",
+    "url": "https://developer.close.com/api/overview/api-key-authentication"
+   },
+   {
+    "field": "gate_detail",
+    "url": "https://developer.close.com/api/overview/api-key-authentication"
+   }
+  ],
+  "confidence": "medium",
+  "dropped_evidence": 0,
+  "schema_issues": [],
+  "evidence_check": {
+   "urls": 3,
+   "loaded": 3,
+   "browser_used": 0,
+   "mention_app": 3
+  },
+  "verified": true
+ },
+ {
+  "id": "10",
+  "name": "DealCloud",
+  "listed_category": "CRM and Sales",
+  "hint": "api.docs.dealcloud.com",
+  "category": "DealCloud",
+  "one_liner": "Enterprise deal\u2011management platform with OAuth2 and API\u2011key authentication, no public self\u2011serve signup, and an official MCP server for AI integration.",
+  "auth": [
+   "oauth2",
+   "api_key"
+  ],
+  "self_serve": "approval_required",
+  "gate_detail": "API keys and tokens are provisioned by your firm\u2019s site administrator; no public self\u2011serve signup.",
+  "api": {
+   "type": "REST",
+   "breadth": "medium",
+   "docs_public": true
+  },
+  "mcp": {
+   "status": "official",
+   "url": "https://api.docs.dealcloud.com/mcp"
+  },
+  "rate_limits": "unknown",
+  "webhooks": "unknown",
+  "sandbox": "unknown",
+  "verdict": "no",
+  "blocker": "approval_required",
+  "blocker_detail": "API keys and tokens are provisioned by your firm\u2019s site administrator; no public self\u2011serve signup.",
+  "evidence": [
+   {
+    "field": "auth",
+    "url": "https://api.docs.dealcloud.com"
+   },
+   {
+    "field": "self_serve",
+    "url": "https://api.docs.dealcloud.com"
+   },
+   {
+    "field": "gate_detail",
+    "url": "https://api.docs.dealcloud.com"
+   },
+   {
+    "field": "api",
+    "url": "https://api.docs.dealcloud.com"
+   },
+   {
+    "field": "mcp",
+    "url": "https://api.docs.dealcloud.com/mcp"
+   },
+   {
+    "field": "rate_limits",
+    "url": "https://api.docs.dealcloud.com"
+   }
+  ],
+  "confidence": "high",
+  "dropped_evidence": 0,
+  "schema_issues": [
+   "blocker"
+  ],
+  "checks": {
+   "category": "unverifiable",
+   "one_liner": "supported",
+   "auth": "supported",
+   "self_serve": "supported",
+   "gate_detail": "supported",
+   "api": "supported",
+   "mcp": "supported",
+   "rate_limits": "unverifiable",
+   "webhooks": "unverifiable",
+   "sandbox": "unverifiable",
+   "verdict": "supported",
+   "blocker": "supported",
+   "blocker_detail": "supported"
+  },
+  "changes": [
+   "No change to category (unverifiable)",
+   "No change to one_liner (supported)",
+   "No change to auth (supported)",
+   "No change to self_serve (supported)",
+   "No change to gate_detail (supported)",
+   "No change to api (supported)",
+   "No change to mcp (supported)",
+   "No change to rate_limits (unverifiable)",
+   "No change to webhooks (unverifiable)",
+   "No change to sandbox (unverifiable)",
+   "No change to verdict (supported)",
+   "No change to blocker (supported)",
+   "No change to blocker_detail (supported)"
+  ],
+  "evidence_check": {
+   "urls": 4,
+   "loaded": 4,
+   "browser_used": 0,
+   "mention_app": 4
+  },
+  "verified": true
+ },
+ {
+  "id": "12",
+  "name": "Intercom",
+  "listed_category": "Support and Helpdesk",
+  "hint": "intercom.com",
+  "category": "customer messaging",
+  "one_liner": "Intercom provides a platform for customer messaging apps for sales, marketing, and support",
+  "auth": [
+   "oauth2",
+   "bearer_token"
+  ],
+  "self_serve": "trial",
+  "gate_detail": "No approval required for private apps; only an Access Token is needed.",
+  "api": {
+   "type": "REST",
+   "breadth": "broad",
+   "docs_public": true
+  },
+  "mcp": {
+   "status": "unknown",
+   "url": null
+  },
+  "rate_limits": "unknown",
+  "webhooks": "unknown",
+  "sandbox": "unknown",
+  "verdict": "yes",
+  "blocker": "none",
+  "blocker_detail": "No blocker for private apps; Access Token can be used directly.",
+  "evidence": [
+   {
+    "field": "auth",
+    "url": "https://developers.intercom.com/docs/build-an-integration/learn-more/authentication"
+   },
+   {
+    "field": "self_serve",
+    "url": "https://intercom.com"
+   },
+   {
+    "field": "gate_detail",
+    "url": "https://developers.intercom.com/docs/build-an-integration/learn-more/authentication"
+   },
+   {
+    "field": "api",
+    "url": "https://developers.intercom.com/docs/build-an-integration/learn-more/authentication"
+   },
+   {
+    "field": "verdict",
+    "url": "https://developers.intercom.com/docs/build-an-integration/learn-more/authentication"
+   },
+   {
+    "field": "blocker",
+    "url": "https://developers.intercom.com/docs/build-an-integration/learn-more/authentication"
+   }
+  ],
+  "confidence": "high",
+  "dropped_evidence": 0,
+  "schema_issues": [],
+  "evidence_check": {
+   "urls": 3,
+   "loaded": 3,
+   "browser_used": 0,
+   "mention_app": 3
+  },
+  "verified": true
+ },
+ {
+  "id": "17",
+  "name": "Plain",
+  "listed_category": "Support and Helpdesk",
+  "hint": "plain.com",
+  "category": "productivity",
+  "one_liner": "Plain is a platform that provides API keys for authentication and offers self-service API key creation",
+  "auth": [
+   "api_key",
+   "bearer_token"
+  ],
+  "self_serve": "free",
+  "gate_detail": "Create an API key by clicking 'Add API key' and selecting the required permissions",
+  "api": {
+   "type": "GraphQL",
+   "breadth": "medium",
+   "docs_public": true
+  },
+  "mcp": {
+   "status": "none",
+   "url": null
+  },
+  "rate_limits": "unknown",
+  "webhooks": "unknown",
+  "sandbox": "unknown",
+  "verdict": "yes",
+  "blocker": "none",
+  "blocker_detail": "unknown",
+  "evidence": [
+   {
+    "field": "auth",
+    "url": "https://www.plain.com/docs/graphql/authentication"
+   },
+   {
+    "field": "api",
+    "url": "https://www.plain.com/docs/graphql/authentication"
+   },
+   {
+    "field": "self_serve",
+    "url": "https://www.plain.com/docs/graphql/authentication"
+   },
+   {
+    "field": "gate_detail",
+    "url": "https://www.plain.com/docs/graphql/authentication"
+   }
+  ],
+  "confidence": "medium",
+  "dropped_evidence": 0,
+  "schema_issues": [],
+  "checks": {
+   "id": "supported",
+   "name": "supported",
+   "listed_category": "supported",
+   "hint": "supported",
+   "category": "unverifiable",
+   "one_liner": "supported",
+   "auth": "supported",
+   "self_serve": "supported",
+   "gate_detail": "supported",
+   "api": "supported",
+   "mcp": "unverifiable",
+   "rate_limits": "unverifiable",
+   "webhooks": "unverifiable",
+   "sandbox": "unverifiable",
+   "verdict": "supported",
+   "blocker": "unverifiable",
+   "blocker_detail": "unverifiable",
+   "confidence": "supported",
+   "dropped_evidence": "unverifiable",
+   "schema_issues": "unverifiable"
+  },
+  "evidence_check": {
+   "urls": 2,
+   "loaded": 2,
+   "browser_used": 0,
+   "mention_app": 2
+  },
+  "verified": true
+ },
+ {
+  "id": "18",
+  "name": "Help Scout",
+  "listed_category": "Support and Helpdesk",
+  "hint": "helpscout.com",
+  "category": "Support and Helpdesk",
+  "one_liner": "Help Scout is a customer support platform that offers API access for integrations",
+  "auth": [
+   "oauth2",
+   "api_key"
+  ],
+  "self_serve": "paid_plan_required",
+  "gate_detail": "Standard, Plus, or Pro plan required for API access",
+  "api": {
+   "type": "REST",
+   "breadth": "medium",
+   "docs_public": true
+  },
+  "mcp": {
+   "status": "community",
+   "url": "https://github.com/drewburchfield/help-scout-mcp-server"
+  },
+  "rate_limits": "200-800 calls per minute depending on plan",
+  "webhooks": "yes",
+  "sandbox": "unknown",
+  "verdict": "no",
+  "blocker": "paid_plan",
+  "blocker_detail": "API access requires a paid plan, but some functionality may be accessible through community-built MCP servers",
+  "evidence": [
+   {
+    "field": "category",
+    "url": "https://helpscout.com"
+   },
+   {
+    "field": "one_liner",
+    "url": "https://helpscout.com"
+   },
+   {
+    "field": "auth",
+    "url": "https://developer.helpscout.com/mailbox-api/overview/authentication"
+   },
+   {
+    "field": "auth",
+    "url": "https://developer.helpscout.com/docs-api"
+   },
+   {
+    "field": "self_serve",
+    "url": "https://docs.helpscout.com/article/1140-mailbox-api"
+   },
+   {
+    "field": "gate_detail",
+    "url": "https://docs.helpscout.com/article/1140-mailbox-api"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.helpscout.com/article/1140-mailbox-api"
+   },
+   {
+    "field": "mcp",
+    "url": "https://github.com/drewburchfield/help-scout-mcp-server"
+   },
+   {
+    "field": "rate_limits",
+    "url": "https://docs.helpscout.com/article/1140-mailbox-api"
+   }
+  ],
+  "confidence": "medium",
+  "dropped_evidence": 0,
+  "schema_issues": [],
+  "evidence_check": {
+   "urls": 3,
+   "loaded": 3,
+   "browser_used": 0,
+   "mention_app": 3
+  },
+  "verified": true
+ },
+ {
+  "id": "21",
+  "name": "Slack",
+  "listed_category": "Communications and Messaging",
+  "hint": "slack.com",
+  "category": "Team Instant Messaging",
+  "one_liner": "Slack provides a public web API for team instant messaging, authenticated with OAuth 2.0",
+  "auth": [
+   "oauth2",
+   "bearer_token"
+  ],
+  "self_serve": "free",
+  "gate_detail": "Any developer can create a Slack app and obtain credentials",
+  "api": {
+   "type": "RPC",
+   "breadth": "broad",
+   "docs_public": true
+  },
+  "mcp": {
+   "status": "unknown",
+   "url": null
+  },
+  "rate_limits": "yes",
+  "webhooks": "yes",
+  "sandbox": "yes",
+  "verdict": "yes",
+  "blocker": "none",
+  "blocker_detail": "No blockers found",
+  "evidence": [
+   {
+    "field": "category",
+    "url": "https://slack.com"
+   },
+   {
+    "field": "one_liner",
+    "url": "https://docs.slack.dev/apis/web-api"
+   },
+   {
+    "field": "auth",
+    "url": "https://docs.slack.dev/authentication"
+   },
+   {
+    "field": "self_serve",
+    "url": "https://slack.com"
+   },
+   {
+    "field": "gate_detail",
+    "url": "https://slack.com"
+   },
+   {
+    "field": "api.type",
+    "url": "https://docs.slack.dev/apis/web-api"
+   },
+   {
+    "field": "api.breadth",
+    "url": "https://docs.slack.dev/apis/web-api"
+   }
+  ],
+  "confidence": "high",
+  "dropped_evidence": 0,
+  "schema_issues": [],
+  "evidence_check": {
+   "urls": 3,
+   "loaded": 3,
+   "browser_used": 0,
+   "mention_app": 3
+  },
+  "verified": true
+ },
+ {
+  "id": "22",
+  "name": "Twilio",
+  "listed_category": "Communications and Messaging",
+  "hint": "twilio.com",
+  "category": "communications",
+  "one_liner": "Twilio is a cloud communications platform providing APIs for SMS, voice, video, and authentication services.",
+  "auth": [
+   "oauth2",
+   "api_key",
+   "basic"
+  ],
+  "self_serve": "free",
+  "gate_detail": "none",
+  "api": {
+   "type": "REST",
+   "breadth": "broad",
+   "docs_public": true
+  },
+  "mcp": {
+   "status": "community",
+   "url": "https://mcp.so/server/sms-mcp-server/YiyangLi"
+  },
+  "rate_limits": "unknown",
+  "webhooks": "yes",
+  "sandbox": "yes",
+  "verdict": "yes",
+  "blocker": "none",
+  "blocker_detail": "none",
+  "evidence": [
+   {
+    "field": "one_liner",
+    "url": "https://twilio.com"
+   },
+   {
+    "field": "auth",
+    "url": "https://www.twilio.com/docs/usage/api-security-reference-guide/secure-auth"
+   }
+  ],
+  "confidence": "high",
+  "dropped_evidence": 0,
+  "schema_issues": [],
+  "evidence_check": {
+   "urls": 3,
+   "loaded": 3,
+   "browser_used": 0,
+   "mention_app": 3
+  },
+  "verified": true
+ },
+ {
+  "id": "25",
+  "name": "Pumble",
+  "listed_category": "Communications and Messaging",
+  "hint": "pumble.com",
+  "category": "team collaboration",
+  "one_liner": "Pumble is a team collaboration platform that offers API keys for integration with other services",
+  "auth": [
+   "api_key"
+  ],
+  "self_serve": "free",
+  "gate_detail": "No approval or payment required to generate API key",
+  "api": {
+   "type": "REST",
+   "breadth": "medium",
+   "docs_public": true
+  },
+  "mcp": {
+   "status": "unknown",
+   "url": null
+  },
+  "rate_limits": "up to 1000 requests per minute per user",
+  "webhooks": "unknown",
+  "sandbox": "unknown",
+  "verdict": "yes",
+  "blocker": "none",
+  "blocker_detail": "No blockers found",
+  "evidence": [
+   {
+    "field": "auth",
+    "url": "https://pumble.com/help/integrations/automation-workflow-integrations/api-keys-integration"
+   },
+   {
+    "field": "self_serve",
+    "url": "https://pumble.com/help/integrations/automation-workflow-integrations/api-keys-integration"
+   },
+   {
+    "field": "gate_detail",
+    "url": "https://pumble.com/help/integrations/automation-workflow-integrations/api-keys-integration"
+   },
+   {
+    "field": "api.type",
+    "url": "https://pumble.com/help/integrations/automation-workflow-integrations/api-keys-integration"
+   },
+   {
+    "field": "api.breadth",
+    "url": "https://pumble.com/help/integrations/automation-workflow-integrations/api-keys-integration"
+   },
+   {
+    "field": "api.docs_public",
+    "url": "https://pumble.com/help/integrations/automation-workflow-integrations/api-keys-integration"
+   },
+   {
+    "field": "rate_limits",
+    "url": "https://pumble.com/help/integrations/automation-workflow-integrations/api-keys-integration"
+   },
+   {
+    "field": "category",
+    "url": "https://pumble.com"
+   },
+   {
+    "field": "one_liner",
+    "url": "https://pumble.com"
+   },
+   {
+    "field": "blocker",
+    "url": "https://pumble.com/help/integrations/automation-workflow-integrations/api-keys-integration"
+   },
+   {
+    "field": "blocker_detail",
+    "url": "https://pumble.com/help/integrations/automation-workflow-integrations/api-keys-integration"
+   },
+   {
+    "field": "verdict",
+    "url": "https://pumble.com/help/integrations/automation-workflow-integrations/api-keys-integration"
+   }
+  ],
+  "confidence": "high",
+  "dropped_evidence": 0,
+  "schema_issues": [],
+  "checks": {
+   "category": "supported",
+   "one_liner": "supported",
+   "auth": "supported",
+   "self_serve": "supported",
+   "gate_detail": "supported",
+   "api.type": "supported",
+   "api.breadth": "supported",
+   "api.docs_public": "supported",
+   "mcp.status": "unverifiable",
+   "mcp.url": "unverifiable",
+   "rate_limits": "supported",
+   "webhooks": "unverifiable",
+   "sandbox": "unverifiable",
+   "verdict": "supported",
+   "blocker": "supported",
+   "blocker_detail": "supported",
+   "confidence": "supported"
+  },
+  "changes": [
+   "Updated mcp.status to unknown due to lack of evidence",
+   "Updated mcp.url to null due to lack of evidence",
+   "Set webhooks to unknown due to lack of evidence",
+   "Set sandbox to unknown due to lack of evidence",
+   "Removed schema issues related to auth field"
+  ],
+  "evidence_check": {
+   "urls": 3,
+   "loaded": 3,
+   "browser_used": 0,
+   "mention_app": 3
+  },
+  "verified": true
+ },
+ {
+  "id": "28",
+  "name": "WhatsApp Business",
+  "listed_category": "Communications and Messaging",
+  "hint": "developers.facebook.com/docs/whatsapp",
+  "category": "messaging",
+  "one_liner": "WhatsApp Business API for building conversational agents and services",
+  "auth": [
+   "bearer_token"
+  ],
+  "self_serve": "approval_required",
+  "gate_detail": "Business portfolio, WhatsApp account, and Messaging account required",
+  "api": {
+   "type": "REST",
+   "breadth": "broad",
+   "docs_public": true
+  },
+  "mcp": {
+   "status": "unknown",
+   "url": null
+  },
+  "rate_limits": "unknown",
+  "webhooks": "yes",
+  "sandbox": "unknown",
+  "verdict": "no",
+  "blocker": "app_review",
+  "blocker_detail": "App Review process required for fully verifying and launching the app",
+  "evidence": [
+   {
+    "field": "auth",
+    "url": "https://developers.facebook.com/docs/whatsapp"
+   }
+  ],
+  "confidence": "medium",
+  "dropped_evidence": 0,
+  "schema_issues": [],
+  "evidence_check": {
+   "urls": 2,
+   "loaded": 2,
+   "browser_used": 0,
+   "mention_app": 2
+  },
+  "verified": true
+ },
+ {
+  "id": "30",
+  "name": "Vonage",
+  "listed_category": "Communications and Messaging",
+  "hint": "developer.vonage.com",
+  "category": "communications",
+  "one_liner": "Vonage provides APIs for communication services, including Verify and Video APIs",
+  "auth": [
+   "basic",
+   "jwt",
+   "oauth2"
+  ],
+  "self_serve": "trial",
+  "gate_detail": "Some APIs require a paid plan, while others may be accessible with a free tier or trial",
+  "api": {
+   "type": "REST",
+   "breadth": "broad",
+   "docs_public": true
+  },
+  "mcp": {
+   "status": "official",
+   "url": "https://github.com/Vonage/vonage-mcp-server-documentation"
+  },
+  "rate_limits": "unknown",
+  "webhooks": "yes",
+  "sandbox": "yes",
+  "verdict": "partial",
+  "blocker": "paid_plan",
+  "blocker_detail": "Some APIs require a paid plan to access",
+  "evidence": [
+   {
+    "field": "category",
+    "url": "https://developer.vonage.com"
+   },
+   {
+    "field": "one_liner",
+    "url": "https://developer.vonage.com"
+   },
+   {
+    "field": "auth",
+    "url": "https://developer.vonage.com/en/verify/concepts/authentication"
+   },
+   {
+    "field": "auth",
+    "url": "https://developer.vonage.com/en/vonage-business-cloud/getting-started/create-an-access-token"
+   },
+   {
+    "field": "self_serve",
+    "url": "https://developer.vonage.com"
+   },
+   {
+    "field": "gate_detail",
+    "url": "https://developer.vonage.com"
+   },
+   {
+    "field": "api.type",
+    "url": "https://developer.vonage.com"
+   },
+   {
+    "field": "api.breadth",
+    "url": "https://developer.vonage.com"
+   },
+   {
+    "field": "api.docs_public",
+    "url": "https://developer.vonage.com"
+   },
+   {
+    "field": "webhooks",
+    "url": "https://developer.vonage.com/en/verify/concepts/authentication"
+   },
+   {
+    "field": "sandbox",
+    "url": "https://developer.vonage.com"
+   },
+   {
+    "field": "blocker",
+    "url": "https://developer.vonage.com"
+   },
+   {
+    "field": "blocker_detail",
+    "url": "https://developer.vonage.com"
+   }
+  ],
+  "confidence": "medium",
+  "dropped_evidence": 2,
+  "schema_issues": [],
+  "checks": {
+   "category": "supported",
+   "one_liner": "supported",
+   "auth": "supported",
+   "self_serve": "supported",
+   "gate_detail": "supported",
+   "api.type": "supported",
+   "api.breadth": "supported",
+   "api.docs_public": "supported",
+   "mcp.status": "supported",
+   "mcp.url": "supported",
+   "rate_limits": "unverifiable",
+   "webhooks": "supported",
+   "sandbox": "supported",
+   "verdict": "unverifiable",
+   "blocker": "supported",
+   "blocker_detail": "supported",
+   "confidence": "unverifiable"
+  },
+  "changes": [
+   "Updated auth methods to include jwt and oauth2, removed api_key",
+   "Changed self_serve to trial",
+   "Set webhooks to yes"
+  ],
+  "evidence_check": {
+   "urls": 3,
+   "loaded": 3,
+   "browser_used": 0,
+   "mention_app": 3
+  },
+  "verified": true
+ },
+ {
+  "id": "31",
+  "name": "Google Ads",
+  "listed_category": "Marketing Ads Email Social",
+  "hint": "developers.google.com/google-ads",
+  "category": "advertising",
+  "one_liner": "The Google Ads API allows developers to manage campaigns, keywords, and reports programmatically",
+  "auth": [
+   "oauth2",
+   "bearer_token"
+  ],
+  "self_serve": "approval_required",
+  "gate_detail": "Developer token required, issued by Google after review",
+  "api": {
+   "type": "REST",
+   "breadth": "broad",
+   "docs_public": true
+  },
+  "mcp": {
+   "status": "official",
+   "url": "https://github.com/googleads/google-ads-mcp"
+  },
+  "rate_limits": "15,000 operations per day (basic access)",
+  "webhooks": "yes",
+  "sandbox": "unknown",
+  "verdict": "yes",
+  "blocker": "app_review",
+  "blocker_detail": "Developer token requires review and approval from Google",
+  "evidence": [
+   {
+    "field": "rate_limits",
+    "url": "https://developers.google.com/google-ads/api/docs/productionize/access-levels"
+   },
+   {
+    "field": "webhooks",
+    "url": "https://developers.google.com/google-ads"
+   },
+   {
+    "field": "verdict",
+    "url": "https://developers.google.com/google-ads/api/docs/productionize/access-levels"
+   },
+   {
+    "field": "verdict",
+    "url": "https://developers.google.com/google-ads/api/docs/oauth/overview"
+   },
+   {
+    "field": "self_serve",
+    "url": "https://developers.google.com/google-ads/api/docs/productionize/access-levels"
+   },
+   {
+    "field": "gate_detail",
+    "url": "https://developers.google.com/google-ads/api/docs/productionize/access-levels"
+   },
+   {
+    "field": "auth",
+    "url": "https://developers.google.com/google-ads/api/docs/oauth/overview"
+   }
+  ],
+  "confidence": "high",
+  "dropped_evidence": 0,
+  "schema_issues": [],
+  "checks": {
+   "category": "supported",
+   "one_liner": "supported",
+   "auth": "supported",
+   "self_serve": "supported",
+   "gate_detail": "supported",
+   "api": "supported",
+   "mcp": "supported",
+   "rate_limits": "supported",
+   "webhooks": "supported",
+   "sandbox": "unverifiable",
+   "verdict": "supported",
+   "blocker": "supported",
+   "blocker_detail": "supported",
+   "confidence": "supported"
+  },
+  "changes": [
+   "Updated rate_limits to '15,000 operations per day (basic access)' based on access-levels documentation",
+   "Confirmed webhooks support via Google Ads documentation",
+   "Adjusted verdict to 'yes' indicating a toolkit can be built with approved credentials"
+  ],
+  "evidence_check": {
+   "urls": 2,
+   "loaded": 2,
+   "browser_used": 0,
+   "mention_app": 2
+  },
+  "verified": true
+ },
+ {
+  "id": "1",
+  "name": "Salesforce",
+  "listed_category": "CRM and Sales",
+  "hint": "salesforce.com",
+  "category": "CRM",
+  "one_liner": "Salesforce offers OAuth\u202f2.0\u2011authenticated REST APIs and a free Developer Edition for building agent toolkits.",
+  "auth": [
+   "oauth2",
+   "bearer_token"
+  ],
+  "self_serve": "free",
+  "gate_detail": "Free Developer Edition provides API access with OAuth\u202f2.0; no additional approval needed.",
+  "api": {
+   "type": "REST",
+   "breadth": "broad",
+   "docs_public": true
+  },
+  "mcp": {
+   "status": "official",
+   "url": "https://developer.salesforce.com/blogs/2026/04/salesforce-hosted-mcp-servers-are-now-generally-available"
+  },
+  "rate_limits": "15,000 API calls per 24\u2011hour period for Developer Edition; higher limits for paid editions",
+  "webhooks": "unknown",
+  "sandbox": "yes",
+  "verdict": "yes",
+  "blocker": "none",
+  "blocker_detail": "none",
+  "evidence": [
+   {
+    "field": "auth",
+    "url": "https://developer.salesforce.com/docs/platform/connect-rest-api/guide/intro_using_oauth.html"
+   },
+   {
+    "field": "self_serve",
+    "url": "https://www.activepieces.com/blog/salesforce-api-types-access-and-limits-2026-guide"
+   },
+   {
+    "field": "api",
+    "url": "https://developer.salesforce.com/docs/platform/connect-rest-api/guide/intro_using_oauth.html"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developer.salesforce.com/blogs/2026/04/salesforce-hosted-mcp-servers-are-now-generally-available"
+   },
+   {
+    "field": "rate_limits",
+    "url": "https://www.activepieces.com/blog/salesforce-api-types-access-and-limits-2026-guide"
+   },
+   {
+    "field": "sandbox",
+    "url": "https://www.activepieces.com/blog/salesforce-api-types-access-and-limits-2026-guide"
+   },
+   {
+    "field": "verdict",
+    "url": "https://www.activepieces.com/blog/salesforce-api-types-access-and-limits-2026-guide"
+   }
+  ],
+  "confidence": "high",
+  "dropped_evidence": 0,
+  "schema_issues": [],
+  "evidence_check": {
+   "urls": 4,
+   "loaded": 4,
+   "browser_used": 2,
+   "mention_app": 3
+  },
+  "verified": false
+ },
+ {
+  "id": "2",
+  "name": "HubSpot",
+  "listed_category": "CRM and Sales",
+  "hint": "hubspot.com",
+  "category": "CRM",
+  "one_liner": "HubSpot API provides various authentication methods and offers a free tier with API access",
+  "auth": [
+   "oauth2",
+   "bearer_token"
+  ],
+  "self_serve": "free",
+  "gate_detail": "No separate developer signup gate or API approval process",
+  "api": {
+   "type": "REST",
+   "breadth": "broad",
+   "docs_public": true
+  },
+  "mcp": {
+   "status": "unknown",
+   "url": null
+  },
+  "rate_limits": "unknown",
+  "webhooks": "yes",
+  "sandbox": "unknown",
+  "verdict": "yes",
+  "blocker": "none",
+  "blocker_detail": "",
+  "evidence": [
+   {
+    "field": "category",
+    "url": "https://hubspot.com"
+   },
+   {
+    "field": "one_liner",
+    "url": "https://hubspot.com"
+   },
+   {
+    "field": "auth",
+    "url": "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/overview"
+   },
+   {
+    "field": "self_serve",
+    "url": "https://hubspot.com"
+   },
+   {
+    "field": "gate_detail",
+    "url": "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/overview"
+   }
+  ],
+  "confidence": "high",
+  "dropped_evidence": 0,
+  "schema_issues": [],
+  "checks": {
+   "category": "supported",
+   "one_liner": "supported",
+   "auth": "supported",
+   "self_serve": "supported",
+   "gate_detail": "supported",
+   "api": "supported",
+   "mcp": "unverifiable",
+   "rate_limits": "unverifiable",
+   "webhooks": "supported",
+   "sandbox": "unverifiable",
+   "verdict": "supported",
+   "blocker": "supported",
+   "blocker_detail": "supported"
+  },
+  "changes": [
+   "Updated auth methods to oauth2 and bearer_token, removed api_key",
+   "Kept self-serve as free",
+   "Kept gate_detail as no separate developer signup gate",
+   "Kept API type as REST with broad breadth",
+   "Set mcp status to unknown due to lack of evidence",
+   "Set rate_limits to unknown due to lack of evidence",
+   "Kept webhooks as yes",
+   "Set sandbox to unknown due to lack of evidence",
+   "Kept verdict as yes",
+   "Kept blocker as none"
+  ],
+  "evidence_check": {
+   "urls": 3,
+   "loaded": 3,
+   "browser_used": 0,
+   "mention_app": 2
+  },
+  "verified": true
+ },
+ {
+  "id": "6",
+  "name": "Podio",
+  "listed_category": "CRM and Sales",
+  "hint": "podio.com",
+  "category": "productivity",
+  "one_liner": "Podio is a platform for building and managing custom applications and workflows",
+  "auth": [
+   "oauth2"
+  ],
+  "self_serve": "approval_required",
+  "gate_detail": "Developer account approval required",
+  "api": {
+   "type": "REST",
+   "breadth": "broad",
+   "docs_public": true
+  },
+  "mcp": {
+   "status": "none",
+   "url": null
+  },
+  "rate_limits": "base rate limits apply, paid accounts can upgrade to higher limits",
+  "webhooks": "yes",
+  "sandbox": "unknown",
+  "verdict": "no",
+  "blocker": "app_review",
+  "blocker_detail": "Developer account approval required",
+  "evidence": [
+   {
+    "field": "authentication",
+    "url": "https://developers.podio.com/authentication"
+   }
+  ],
+  "confidence": "high",
+  "dropped_evidence": 0,
+  "schema_issues": [],
+  "evidence_check": {
+   "urls": 2,
+   "loaded": 2,
+   "browser_used": 0,
+   "mention_app": 2
+  },
+  "verified": false
+ },
+ {
+  "id": "9",
+  "name": "Copper",
+  "listed_category": "CRM and Sales",
+  "hint": "copper.com",
+  "category": "CRM",
+  "one_liner": "Copper is a CRM platform that provides a REST JSON API with API key or OAuth 2.0 authentication",
+  "auth": [
+   "api_key",
+   "oauth2"
+  ],
+  "self_serve": "paid_plan_required",
+  "gate_detail": "No free tier, free trial available",
+  "api": {
+   "type": "REST",
+   "breadth": "broad",
+   "docs_public": true
+  },
+  "mcp": {
+   "status": "none",
+   "url": null
+  },
+  "rate_limits": "180 requests per minute",
+  "webhooks": "yes",
+  "sandbox": "unknown",
+  "verdict": "no",
+  "blocker": "paid_plan",
+  "blocker_detail": "Copper API requires a paid plan to access",
+  "evidence": [
+   {
+    "field": "Copper API pricing",
+    "url": "https://frontal.so/gtm-apis/crm-apis/copper-api-review"
+   }
+  ],
+  "confidence": "high",
+  "dropped_evidence": 0,
+  "schema_issues": [],
+  "evidence_check": {
+   "urls": 2,
+   "loaded": 2,
+   "browser_used": 0,
+   "mention_app": 2
+  },
+  "verified": false
+ },
+ {
+  "id": "11",
+  "name": "Zendesk",
+  "listed_category": "Support and Helpdesk",
+  "hint": "zendesk.com",
+  "category": "customer support",
+  "one_liner": "Zendesk is a customer support platform that provides APIs for integration and development",
+  "auth": [
+   "oauth2",
+   "api_key",
+   "basic",
+   "bearer_token"
+  ],
+  "self_serve": "paid_plan_required",
+  "gate_detail": "API access requires a paid plan and approval from Zendesk",
+  "api": {
+   "type": "REST",
+   "breadth": "broad",
+   "docs_public": true
+  },
+  "mcp": {
+   "status": "official",
+   "url": "https://developer.zendesk.com/"
+  },
+  "rate_limits": "unknown",
+  "webhooks": "yes",
+  "sandbox": "unknown",
+  "verdict": "no",
+  "blocker": "paid_plan",
+  "blocker_detail": "API access requires a paid plan",
+  "evidence": [
+   {
+    "field": "API access",
+    "url": "https://developer.zendesk.com/api-reference/introduction/security-and-auth"
+   }
+  ],
+  "confidence": "high",
+  "dropped_evidence": 0,
+  "schema_issues": [],
+  "evidence_check": {
+   "urls": 2,
+   "loaded": 2,
+   "browser_used": 0,
+   "mention_app": 2
+  },
+  "verified": false
+ },
+ {
+  "id": "13",
+  "name": "Freshdesk",
+  "listed_category": "Support and Helpdesk",
+  "hint": "freshdesk.com",
+  "category": "customer support",
+  "one_liner": "Freshdesk is a customer support software that provides a range of tools for managing customer inquiries and issues.",
+  "auth": [
+   "api_key",
+   "oauth2"
+  ],
+  "self_serve": "paid_plan_required",
+  "gate_detail": "API key required for access, OAuth 2.0 implementation available",
+  "api": {
+   "type": "REST",
+   "breadth": "broad",
+   "docs_public": true
+  },
+  "mcp": {
+   "status": "official",
+   "url": "https://developers.freshworks.com/docs/app-sdk/v3.0/support_company/oauth-implementation-in-apps"
+  },
+  "rate_limits": "The number of API calls per hour",
+  "webhooks": "yes",
+  "sandbox": "unknown",
+  "verdict": "partial",
+  "blocker": "paid_plan",
+  "blocker_detail": "Freshdesk API access requires a paid plan",
+  "evidence": [
+   {
+    "field": "API authentication",
+    "url": "https://developers.freshworks.com/docs/app-sdk/v3.0/support_company/oauth-implementation-in-apps"
+   },
+   {
+    "field": "Rate Limit",
+    "url": "https://developers.freshdesk.com/api"
+   }
+  ],
+  "confidence": "high",
+  "dropped_evidence": 0,
+  "schema_issues": [],
+  "evidence_check": {
+   "urls": 3,
+   "loaded": 3,
+   "browser_used": 0,
+   "mention_app": 3
+  },
+  "verified": false
+ },
+ {
+  "id": "14",
+  "name": "Front",
+  "listed_category": "Support and Helpdesk",
+  "hint": "front.com",
+  "category": "customer support",
+  "one_liner": "Front is a customer support platform that provides API access for integrations",
+  "auth": [
+   "oauth2",
+   "bearer_token"
+  ],
+  "self_serve": "approval_required",
+  "gate_detail": "OAuth is required for public integrations, API tokens are available for internal use or single-customer integrations",
+  "api": {
+   "type": "REST",
+   "breadth": "broad",
+   "docs_public": true
+  },
+  "mcp": {
+   "status": "official",
+   "url": "https://eseospace.com/blog/front-mcp-server"
+  },
+  "rate_limits": "50-200 requests per minute depending on the plan",
+  "webhooks": "unknown",
+  "sandbox": "unknown",
+  "verdict": "no",
+  "blocker": "partner_gate",
+  "blocker_detail": "OAuth is required for public integrations and API tokens are not publicly available",
+  "evidence": [
+   {
+    "field": "Authentication",
+    "url": "https://dev.frontapp.com/docs/authentication"
+   },
+   {
+    "field": "Front API",
+    "url": "https://www.getmacha.com/blog/front-api-explained"
+   }
+  ],
+  "confidence": "high",
+  "dropped_evidence": 0,
+  "schema_issues": [],
+  "evidence_check": {
+   "urls": 3,
+   "loaded": 3,
+   "browser_used": 0,
+   "mention_app": 3
+  },
+  "verified": false
+ },
+ {
+  "id": "15",
+  "name": "Pylon",
+  "listed_category": "Support and Helpdesk",
+  "hint": "usepylon.com",
+  "category": "customer support",
+  "one_liner": "Pylon is a platform for scaling sales, success, and support processes over chat and integrating data into existing systems",
+  "auth": [
+   "bearer_token"
+  ],
+  "self_serve": "trial",
+  "gate_detail": "free trials are available, set up with a sales rep",
+  "api": {
+   "type": "REST",
+   "breadth": "medium",
+   "docs_public": true
+  },
+  "mcp": {
+   "status": "community",
+   "url": "https://ubos.tech/mcp/pylon-server"
+  },
+  "rate_limits": "30, 120 or 300 requests a minute",
+  "webhooks": "yes",
+  "sandbox": "no",
+  "verdict": "no",
+  "blocker": "paid_plan",
+  "blocker_detail": "API access is only available on the Professional and Advanced plans",
+  "evidence": [
+   {
+    "field": "API access",
+    "url": "https://heydeacon.com/resources/pylon-pricing"
+   }
+  ],
+  "confidence": "high",
+  "dropped_evidence": 0,
+  "schema_issues": [],
+  "evidence_check": {
+   "urls": 2,
+   "loaded": 2,
+   "browser_used": 0,
+   "mention_app": 2
+  },
+  "verified": false
+ },
+ {
+  "id": "16",
+  "name": "LiveAgent",
+  "listed_category": "Support and Helpdesk",
+  "hint": "liveagent.com",
+  "category": "customer service",
+  "one_liner": "LiveAgent is a customer service platform that offers API access for custom integrations",
+  "auth": [
+   "api_key"
+  ],
+  "self_serve": "paid_plan_required",
+  "gate_detail": "API keys are included in each subscription plan, with the number of keys varying by plan",
+  "api": {
+   "type": "REST",
+   "breadth": "broad",
+   "docs_public": true
+  },
+  "mcp": {
+   "status": "official",
+   "url": "https://support.liveagent.com/150554-AI-features"
+  },
+  "rate_limits": "unknown",
+  "webhooks": "unknown",
+  "sandbox": "yes",
+  "verdict": "no",
+  "blocker": "paid_plan",
+  "blocker_detail": "API keys are only available with a paid subscription plan",
+  "evidence": [
+   {
+    "field": "API key documentation",
+    "url": "https://github.com/QualityUnit/LiveAgent-api-python"
+   },
+   {
+    "field": "Pricing plans",
+    "url": "https://www.liveagent.com/pricing"
+   }
+  ],
+  "confidence": "high",
+  "dropped_evidence": 0,
+  "schema_issues": [],
+  "evidence_check": {
+   "urls": 3,
+   "loaded": 3,
+   "browser_used": 0,
+   "mention_app": 3
+  },
+  "verified": false
+ },
+ {
+  "id": "19",
+  "name": "Gorgias",
+  "listed_category": "Support and Helpdesk",
+  "hint": "gorgias.com",
+  "category": "customer service",
+  "one_liner": "Gorgias is a customer service platform that provides APIs for integrating with other applications",
+  "auth": [
+   "oauth2",
+   "api_key",
+   "basic"
+  ],
+  "self_serve": "paid_plan_required",
+  "gate_detail": "Only account owners and admins can create API keys",
+  "api": {
+   "type": "REST",
+   "breadth": "broad",
+   "docs_public": true
+  },
+  "mcp": {
+   "status": "community",
+   "url": "https://github.com/mattcoatsworth/Gorgias-MCP-Server"
+  },
+  "rate_limits": "adaptive throttling tuned to your plan tier",
+  "webhooks": "yes",
+  "sandbox": "unknown",
+  "verdict": "no",
+  "blocker": "paid_plan",
+  "blocker_detail": "API access is only available on paid plans",
+  "evidence": [
+   {
+    "field": "API access",
+    "url": "https://docs.gorgias.com/en-US/rest-api-208286"
+   }
+  ],
+  "confidence": "high",
+  "dropped_evidence": 0,
+  "schema_issues": [],
+  "evidence_check": {
+   "urls": 2,
+   "loaded": 2,
+   "browser_used": 0,
+   "mention_app": 2
+  },
+  "verified": false
+ },
+ {
+  "id": "20",
+  "name": "Gladly",
+  "listed_category": "Support and Helpdesk",
+  "hint": "gladly.com",
+  "category": "customer service",
+  "one_liner": "Gladly is a customer service platform that provides APIs for integration with other tools and services.",
+  "auth": [
+   "basic",
+   "api_key"
+  ],
+  "self_serve": "paid_plan_required",
+  "gate_detail": "API User permission required",
+  "api": {
+   "type": "REST",
+   "breadth": "medium",
+   "docs_public": true
+  },
+  "mcp": {
+   "status": "community",
+   "url": "https://mcpservers.org/servers/cotlet-dev-integrations-gladly-api-mcp-server"
+  },
+  "rate_limits": "10 requests per second per HTTP method",
+  "webhooks": "yes",
+  "sandbox": "yes",
+  "verdict": "no",
+  "blocker": "paid_plan",
+  "blocker_detail": "API User permission and paid plan required",
+  "evidence": [
+   {
+    "field": "API User permission",
+    "url": "https://developer.gladly.com/rest"
+   },
+   {
+    "field": "paid plan",
+    "url": "https://www.getmacha.com/blog/gladly-api-explained"
+   }
+  ],
+  "confidence": "high",
+  "dropped_evidence": 0,
+  "schema_issues": [],
+  "verified": false,
+  "_verify_error": "LLM HTTP 400: {\"error\":{\"message\":\"Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.\",\"type\":\"invalid_request_error\",\"code\":\"json_validate_failed\",\"failed_generation\":\"\"}}\n"
+ },
+ {
+  "id": "23",
+  "name": "Zoho Cliq",
+  "listed_category": "Communications and Messaging",
+  "hint": "zoho.com/cliq",
+  "category": "team collaboration",
+  "one_liner": "Zoho Cliq is a real-time messaging software for team collaboration",
+  "auth": [
+   "oauth2",
+   "bearer_token"
+  ],
+  "self_serve": "unknown",
+  "gate_detail": "Zoho Cliq uses OAuth and requires a Client ID and Client Secret",
+  "api": {
+   "type": "REST",
+   "breadth": "broad",
+   "docs_public": true
+  },
+  "mcp": {
+   "status": "official",
+   "url": "https://www.zoho.com/cliq/mcp-server.html"
+  },
+  "rate_limits": "unknown",
+  "webhooks": "yes",
+  "sandbox": "unknown",
+  "verdict": "no",
+  "blocker": "paid_plan",
+  "blocker_detail": "Zoho Cliq requires a paid plan to access its API",
+  "evidence": [
+   {
+    "field": "Authentication",
+    "url": "https://mindcloud.co/docs/universal/rest/zoho-cliq/latest/introduction/authentication"
+   },
+   {
+    "field": "API Registration",
+    "url": "https://www.zoho.com/cliq/help/restapi/v2/registerclient"
+   }
+  ],
+  "confidence": "medium",
+  "dropped_evidence": 0,
+  "schema_issues": [],
+  "evidence_check": {
+   "urls": 3,
+   "loaded": 3,
+   "browser_used": 0,
+   "mention_app": 3
+  },
+  "verified": false
+ }
+]

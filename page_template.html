@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AppScout: 100 apps, researched by an agent, checked by hand</title>
+<!--LD-->
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Serif:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f5f7;--fg:#14202b;--mut:#5b6b78;--line:#d3dce3;--card:#fff;--ok:#12805c;--warn:#b26a00;--bad:#b3261e;--acc:#1d4f91}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1820;--fg:#e6edf2;--mut:#93a4b2;--line:#273845;--card:#16232d;--ok:#4cc79a;--warn:#e0a23c;--bad:#ff8a80;--acc:#7fb2ee}}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font:15px/1.55 "IBM Plex Sans",system-ui,sans-serif;padding:0 clamp(14px,4vw,48px) 60px}
+h1,h2{font-family:"IBM Plex Serif",Georgia,serif;font-weight:600;line-height:1.2}
+h1{font-size:clamp(26px,4.5vw,40px);margin:36px 0 8px;max-width:22ch}h2{font-size:22px;margin:44px 0 10px}
+p.lead{max-width:68ch;color:var(--mut);margin:0 0 18px}
+.wrap{max-width:1180px;margin:auto}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:18px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--acc);padding:12px 14px;border-radius:4px}
+.stat b{display:block;font-size:20px}.stat span{color:var(--mut);font-size:13px}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:4px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:13px}th,td{padding:7px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{position:sticky;top:0;background:var(--card);cursor:pointer;white-space:nowrap}
+.yes{color:var(--ok);font-weight:600}.partial{color:var(--warn);font-weight:600}.no{color:var(--bad);font-weight:600}
+.bar{display:flex;height:14px;border-radius:2px;overflow:hidden;background:var(--line);min-width:120px}.bar i{display:block}
+.row{display:grid;grid-template-columns:160px 1fr 40px;gap:8px;align-items:center;font-size:13px;margin:4px 0}
+.ctl{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}input,select,button{font:inherit;padding:6px 9px;border:1px solid var(--line);border-radius:4px;background:var(--card);color:var(--fg)}
+button{background:var(--acc);color:#fff;border-color:var(--acc);cursor:pointer}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.flow{display:flex;gap:8px;flex-wrap:wrap}.flow div{flex:1 1 150px;background:var(--card);border:1px solid var(--line);padding:10px;border-radius:4px;font-size:13px}
+.flow b{display:block;margin-bottom:3px}.human{border-top:3px solid var(--warn)}
+pre{background:var(--card);border:1px solid var(--line);padding:10px;overflow:auto;font-size:12px;max-height:260px}
+a{color:var(--acc)}small{color:var(--mut)}
+</style></head><body><div class="wrap">
+<h1 id="title">What it takes to turn 100 apps into agent toolkits</h1>
+<p class="lead" id="sub">An agent researched auth, access gating, API surface, MCP status and buildability for each app, then a second agent pass and a hand-checked sample tested its accuracy.</p>
+
+<h2>Patterns</h2><div class="stats" id="stats"></div>
+<div id="gate"></div>
+
+<h2>Findings</h2>
+<div class="ctl"><input id="q" placeholder="Filter by app, auth, blocker…" aria-label="Filter"><select id="v" aria-label="Verdict"><option value="">All verdicts</option><option>yes</option><option>partial</option><option>no</option></select><small id="cnt"></small></div>
+<div class="scroll"><table id="t"><thead></thead><tbody></tbody></table></div>
+
+<h2>The agent</h2>
+<div class="flow">
+<div><b>1. Search</b>3 queries per app: auth docs, access and pricing, MCP.</div>
+<div><b>2. Extract</b>Gemini reads only the retrieved sources and returns fixed-schema JSON.</div>
+<div><b>3. Clamp</b>Code drops any evidence URL that was not in the sources and downgrades confidence.</div>
+<div><b>4. Verify</b>A skeptical second pass reloads the cited pages (HTTP, then headless browser) plus fresh search.</div>
+<div class="human"><b>5. Human</b>Hand-built gold set for 20 apps, checked against official docs.</div>
+</div>
+<p><small id="human"></small></p>
+
+<h2>Verification</h2><p class="lead">Accuracy against the hand-checked sample, first pass versus after the verification loop. Misses are listed, not hidden.</p>
+<div id="acc"></div><div id="miss"></div>
+
+<h2>Try it</h2>
+<div class="ctl"><input id="app" placeholder="App name, e.g. Stripe"><button id="go">Research it</button><label><input type="checkbox" id="vf"> verify</label></div>
+<pre id="out">Runs the same pipeline live when this page is served by <code>python scout.py serve</code>.</pre>
+<p><small>Machine-readable: <a href="pass2.json">pass2.json</a>, <a href="patterns.json">patterns.json</a>, <a href="score.json">score.json</a>, <a href="llms.txt">llms.txt</a></small></p>
+</div>
+<script>
+const D=/*DATA*/null, E=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const rows=(D&&D.rows||[]).filter(r=>!r._error), C=a=>a.reduce((m,k)=>(m[k]=(m[k]||0)+1,m),{});
+const top=o=>Object.entries(o).filter(([k])=>k&&k!="undefined").sort((a,b)=>b[1]-a[1])[0]||["n/a",0];
+const pct=(n,t)=>t?Math.round(100*n/t)+"%":"n/a";
+function stats(){
+ if(!rows.length){document.getElementById("stats").innerHTML="<p>No data yet. Run the pipeline, then <code>python scout.py bundle</code>.</p>";return}
+ const n=rows.length, auth=top(C(rows.flatMap(r=>r.auth||[]))), bl=top(C(rows.filter(r=>r.blocker&&r.blocker!="none").map(r=>r.blocker)));
+ const ss=rows.filter(r=>["free","trial"].includes(r.self_serve)).length, yes=rows.filter(r=>r.verdict=="yes").length;
+ const easy=rows.filter(r=>r.verdict=="yes"&&r.blocker=="none").length, mcp=rows.filter(r=>["official","community"].includes((r.mcp||{}).status)).length;
+ const S=[[auth[0],`is the most common auth method (${auth[1]} of ${n} apps)`],[pct(ss,n),"let a developer get credentials free or on trial"],
+  [bl[0],`is the most common blocker (${bl[1]} apps)`],[pct(yes,n),`could be built as a toolkit today (${easy} with no blocker at all)`],[pct(mcp,n),"already have an official or community MCP server"]];
+ document.getElementById("stats").innerHTML=S.map(s=>`<div class="stat"><b>${E(s[0])}</b><span>${E(s[1])}</span></div>`).join("");
+ const cats=[...new Set(rows.map(r=>r.listed_category))],col={free:"var(--ok)",trial:"var(--ok)",paid_plan_required:"var(--warn)",approval_required:"var(--bad)",partner_gated:"var(--bad)",contact_sales:"var(--bad)"};
+ document.getElementById("gate").innerHTML="<p class='lead'>Share of apps by access type, per category. Green is self-serve, amber needs a paid plan, red needs approval or a sales conversation.</p>"+
+  cats.map(c=>{const g=rows.filter(r=>r.listed_category==c),k=C(g.map(r=>r.self_serve));
+   return `<div class="row"><span>${E(c)}</span><div class="bar">${Object.entries(k).map(([a,b])=>`<i title="${E(a)}: ${b}" style="width:${100*b/g.length}%;background:${col[a]||"var(--mut)"}"></i>`).join("")}</div><span>${g.length}</span></div>`}).join("");
+}
+let sort=["name",1];const cols=[["name","App"],["listed_category","Category"],["auth","Auth"],["self_serve","Access"],["api","API"],["mcp","MCP"],["verdict","Verdict"],["blocker","Blocker"],["confidence","Conf."],["evidence","Evidence"]];
+const val=(r,k)=>k=="auth"?(r.auth||[]).join(", "):k=="api"?(r.api||{}).type+" / "+(r.api||{}).breadth:k=="mcp"?(r.mcp||{}).status:k=="evidence"?(r.evidence||[]).length:r[k];
+function table(){
+ const q=document.getElementById("q").value.toLowerCase(),v=document.getElementById("v").value;
+ let r=rows.filter(x=>(!v||x.verdict==v)&&(!q||JSON.stringify(x).toLowerCase().includes(q)));
+ r.sort((a,b)=>String(val(a,sort[0])).localeCompare(String(val(b,sort[0])),undefined,{numeric:true})*sort[1]);
+ document.querySelector("#t thead").innerHTML="<tr>"+cols.map(c=>`<th data-k="${c[0]}">${c[1]}</th>`).join("")+"</tr>";
+ document.querySelector("#t tbody").innerHTML=r.map(x=>"<tr>"+cols.map(([k])=>{
+  if(k=="evidence")return "<td>"+(x.evidence||[]).slice(0,3).map((e,i)=>`<a href="${E(e.url)}" target="_blank" rel="noopener" title="${E(e.field)}">${i+1}</a>`).join(" ")+"</td>";
+  const t=E(val(x,k));return `<td class="${k=="verdict"?E(x.verdict):""}" title="${k=="blocker"?E(x.blocker_detail):k=="self_serve"?E(x.gate_detail):""}">${t}</td>`}).join("")+"</tr>").join("");
+ document.getElementById("cnt").textContent=r.length+" of "+rows.length+" apps";
+ document.querySelectorAll("#t th").forEach(h=>h.onclick=()=>{sort=[h.dataset.k,sort[0]==h.dataset.k?-sort[1]:1];table()});
+}
+function score(){
+ const s=D&&D.score; if(!s){document.getElementById("acc").innerHTML="<p>Score not computed yet: fill <code>gold.csv</code> by hand, then run <code>python scout.py score</code>.</p>";return}
+ const p=k=>s[k]?Math.round(100*s[k].overall[0]/s[k].overall[1]):null;
+ document.getElementById("acc").innerHTML=`<div class="stats"><div class="stat"><b>${p("pass1")}%</b><span>first pass, ${s.n_gold} hand-checked apps</span></div><div class="stat"><b>${p("pass2")??"n/a"}%</b><span>after verification loop</span></div></div>`+
+  "<div class='scroll'><table><tr><th>Field</th><th>First pass</th><th>Verified</th></tr>"+Object.keys((s.pass1||{}).fields||{}).map(f=>`<tr><td>${E(f)}</td><td>${s.pass1.fields[f].join("/")}</td><td>${s.pass2?s.pass2.fields[f].join("/"):"n/a"}</td></tr>`).join("")+"</table></div>";
+ const m=(s.misses||{}).pass2||(s.misses||{}).pass1||[];
+ document.getElementById("miss").innerHTML="<h3>Remaining misses</h3><div class='scroll'><table><tr><th>App</th><th>Field</th><th>Agent said</th><th>Docs say</th></tr>"+m.map(x=>`<tr><td>${E(x.app)}</td><td>${E(x.field)}</td><td>${E(x.agent)}</td><td>${E(x.gold)}</td></tr>`).join("")+"</table></div>";
+}
+document.getElementById("human").innerHTML=E((D&&D.notes&&D.notes.human)||"Where a human was needed: building the gold set, judging apps whose docs sit behind a login, and apps the agent marked low confidence. Edit notes.json to describe your own cases and any app that defeated the agent.");
+document.getElementById("go").onclick=async()=>{const o=document.getElementById("out");o.textContent="Researching…";
+ try{const r=await fetch("research?app="+encodeURIComponent(document.getElementById("app").value)+(document.getElementById("vf").checked?"&verify=1":""));o.textContent=JSON.stringify(await r.json(),null,1)}
+ catch(e){o.textContent="Could not reach the research endpoint. Run python scout.py serve and open this page from it."}};
+["q","v"].forEach(i=>document.getElementById(i).oninput=table);stats();table();score();
+</script></body></html>

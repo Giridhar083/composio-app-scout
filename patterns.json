@@ -1,0 +1,67 @@
+{
+ "auth": {
+  "api_key": 11,
+  "oauth2": 17,
+  "bearer_token": 9,
+  "basic": 3,
+  "jwt": 1
+ },
+ "blockers": {
+  "paid_plan": 5,
+  "none": 11,
+  "approval_required": 1,
+  "app_review": 3
+ },
+ "verdict": {
+  "yes": 13,
+  "no": 6,
+  "partial": 1
+ },
+ "mcp": {
+  "unknown": 6,
+  "official": 9,
+  "none": 3,
+  "community": 2
+ },
+ "self_serve_by_category": {
+  "CRM and Sales": {
+   "trial": 1,
+   "free": 5,
+   "unknown": 1,
+   "approval_required": 2,
+   "paid_plan_required": 1
+  },
+  "Support and Helpdesk": {
+   "trial": 1,
+   "free": 1,
+   "paid_plan_required": 2
+  },
+  "Communications and Messaging": {
+   "free": 3,
+   "approval_required": 1,
+   "trial": 1
+  },
+  "Marketing Ads Email Social": {
+   "approval_required": 1
+  }
+ },
+ "easy_wins": [
+  "Attio",
+  "Twenty",
+  "Zoho CRM",
+  "Close",
+  "Intercom",
+  "Plain",
+  "Slack",
+  "Twilio",
+  "Pumble",
+  "Salesforce",
+  "HubSpot"
+ ],
+ "needs_outreach": [
+  "WhatsApp Business",
+  "Google Ads",
+  "Podio"
+ ],
+ "low_confidence": []
+}

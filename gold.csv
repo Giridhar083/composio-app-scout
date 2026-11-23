@@ -1,0 +1,21 @@
+name,auth(; separated),self_serve,mcp,verdict,evidence_url
+Podio,oauth2,free,official,yes,https://developers.podio.com/authentication
+Pipedrive,oauth2;api_key,free,official,yes,https://pipedrive.readme.io/docs/developer-sandbox-account
+Plain,api_key;bearer_token;oauth2,trial,official,partial,https://www.plain.com/docs/graphql/authentication
+Zendesk,oauth2;api_key;basic;bearer_token,trial,community,partial,https://developer.zendesk.com/api-reference/introduction/security-and-auth/
+Twilio,oauth2;api_key;basic,free,official,yes,https://www.twilio.com/docs/usage/api-security-reference-guide/secure-auth
+Aircall,oauth2;api_key;basic,partner_gated,official,no,https://developer.aircall.io/docs/how-to-register
+Meta Ads,oauth2;bearer_token,approval_required,official,no,https://developers.facebook.com/docs/marketing-apis
+Klaviyo,oauth2;api_key,free,official,yes,https://developers.klaviyo.com/en/docs/set_up_oauth
+fanbasis,api_key,free,none,yes,https://commasdocs.com/
+Shopify,oauth2;api_key,free,official,yes,https://shopify.dev/docs/api/usage/authentication
+Waterfall.io,api_key,approval_required,community,no,https://docs.waterfall.io/v1/introduction
+MrScraper,api_key;oauth2;bearer_token,free,official,yes,https://docs.mrscraper.com/docs/api/authentication
+GitHub,oauth2;bearer_token;api_key,free,official,yes,https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api
+Vercel,bearer_token;oauth2,free,official,yes,https://vercel.com/docs/rest-api
+ClickUp,oauth2;api_key;bearer_token,free,official,yes,https://developer.clickup.com/docs/connect-an-ai-assistant-to-clickups-mcp-server
+Harvest,oauth2;bearer_token,free,community,yes,https://help.getharvest.com/api-v2/authentication-api/authentication/authentication/
+Plaid,api_key;oauth2,approval_required,official,partial,https://plaid.com/docs/resources/mcp/
+Paygent Connect,api_key,partner_gated,none,no,https://docs.nmi.com/reference/authentication
+Otter AI,oauth2,paid_plan_required,official,no,https://help.otter.ai/hc/en-us/articles/35287607569687-Otter-MCP-Server
+YouTube Transcript,bearer_token;api_key,free,official,yes,https://transcriptapi.com/docs/api/
