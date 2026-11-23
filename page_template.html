@@ -1,8 +1,8 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AppScout: 100 apps, researched by an agent, checked by hand</title>
-<!--LD-->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Dataset", "name": "AppScout: 100 apps researched for agent toolkits", "description": "Auth, access gating, API surface, MCP status and buildability verdict for 100 apps, with evidence URLs.", "distribution": [{"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "pass2.json"}, {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "pass1.json"}, {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "score.json"}, {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "patterns.json"}]}</script>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Serif:wght@600&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#f2f5f7;--fg:#14202b;--mut:#5b6b78;--line:#d3dce3;--card:#fff;--ok:#12805c;--warn:#b26a00;--bad:#b3261e;--acc:#1d4f91}
@@ -37,7 +37,7 @@ a{color:var(--acc)}small{color:var(--mut)}
 <div id="gate"></div>
 
 <h2>Findings</h2>
-<div class="ctl"><input id="q" placeholder="Filter by app, auth, blocker…" aria-label="Filter"><select id="v" aria-label="Verdict"><option value="">All verdicts</option><option>yes</option><option>partial</option><option>no</option></select><small id="cnt"></small></div>
+<div class="ctl"><input id="q" placeholder="Filter by app, auth, blockerâ€¦" aria-label="Filter"><select id="v" aria-label="Verdict"><option value="">All verdicts</option><option>yes</option><option>partial</option><option>no</option></select><small id="cnt"></small></div>
 <div class="scroll"><table id="t"><thead></thead><tbody></tbody></table></div>
 
 <h2>The agent</h2>
@@ -59,13 +59,14 @@ a{color:var(--acc)}small{color:var(--mut)}
 <p><small>Machine-readable: <a href="pass2.json">pass2.json</a>, <a href="patterns.json">patterns.json</a>, <a href="score.json">score.json</a>, <a href="llms.txt">llms.txt</a></small></p>
 </div>
 <script>
-const D=/*DATA*/null, E=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const D=__DATA__;
+const E=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const rows=(D&&D.rows||[]).filter(r=>!r._error), C=a=>a.reduce((m,k)=>(m[k]=(m[k]||0)+1,m),{});
-const top=o=>Object.entries(o).filter(([k])=>k&&k!="undefined").sort((a,b)=>b[1]-a[1])[0]||["n/a",0];
+const topEntry=o=>Object.entries(o).filter(([k])=>k&&k!="undefined").sort((a,b)=>b[1]-a[1])[0]||["n/a",0];
 const pct=(n,t)=>t?Math.round(100*n/t)+"%":"n/a";
 function stats(){
  if(!rows.length){document.getElementById("stats").innerHTML="<p>No data yet. Run the pipeline, then <code>python scout.py bundle</code>.</p>";return}
- const n=rows.length, auth=top(C(rows.flatMap(r=>r.auth||[]))), bl=top(C(rows.filter(r=>r.blocker&&r.blocker!="none").map(r=>r.blocker)));
+ const n=rows.length, auth=topEntry(C(rows.flatMap(r=>r.auth||[]))), bl=topEntry(C(rows.filter(r=>r.blocker&&r.blocker!="none").map(r=>r.blocker)));
  const ss=rows.filter(r=>["free","trial"].includes(r.self_serve)).length, yes=rows.filter(r=>r.verdict=="yes").length;
  const easy=rows.filter(r=>r.verdict=="yes"&&r.blocker=="none").length, mcp=rows.filter(r=>["official","community"].includes((r.mcp||{}).status)).length;
  const S=[[auth[0],`is the most common auth method (${auth[1]} of ${n} apps)`],[pct(ss,n),"let a developer get credentials free or on trial"],
@@ -74,7 +75,7 @@ function stats(){
  const cats=[...new Set(rows.map(r=>r.listed_category))],col={free:"var(--ok)",trial:"var(--ok)",paid_plan_required:"var(--warn)",approval_required:"var(--bad)",partner_gated:"var(--bad)",contact_sales:"var(--bad)"};
  document.getElementById("gate").innerHTML="<p class='lead'>Share of apps by access type, per category. Green is self-serve, amber needs a paid plan, red needs approval or a sales conversation.</p>"+
   cats.map(c=>{const g=rows.filter(r=>r.listed_category==c),k=C(g.map(r=>r.self_serve));
-   return `<div class="row"><span>${E(c)}</span><div class="bar">${Object.entries(k).map(([a,b])=>`<i title="${E(a)}: ${b}" style="width:${100*b/g.length}%;background:${col[a]||"var(--mut)"}"></i>`).join("")}</div><span>${g.length}</span></div>`}).join("");
+   return `<div class="row"><span>${E(c)}</span><div class="bar">${Object.entries(k).map(([a,b])=>`<i title="${E(a)}:${b}" style="width:${100*b/g.length}\%;background:${col[a]||"var(--mut)"}"></i>`).join("")}</div><span>${g.length}</span></div>`}).join("");
 }
 let sort=["name",1];const cols=[["name","App"],["listed_category","Category"],["auth","Auth"],["self_serve","Access"],["api","API"],["mcp","MCP"],["verdict","Verdict"],["blocker","Blocker"],["confidence","Conf."],["evidence","Evidence"]];
 const val=(r,k)=>k=="auth"?(r.auth||[]).join(", "):k=="api"?(r.api||{}).type+" / "+(r.api||{}).breadth:k=="mcp"?(r.mcp||{}).status:k=="evidence"?(r.evidence||[]).length:r[k];
@@ -98,7 +99,7 @@ function score(){
  document.getElementById("miss").innerHTML="<h3>Remaining misses</h3><div class='scroll'><table><tr><th>App</th><th>Field</th><th>Agent said</th><th>Docs say</th></tr>"+m.map(x=>`<tr><td>${E(x.app)}</td><td>${E(x.field)}</td><td>${E(x.agent)}</td><td>${E(x.gold)}</td></tr>`).join("")+"</table></div>";
 }
 document.getElementById("human").innerHTML=E((D&&D.notes&&D.notes.human)||"Where a human was needed: building the gold set, judging apps whose docs sit behind a login, and apps the agent marked low confidence. Edit notes.json to describe your own cases and any app that defeated the agent.");
-document.getElementById("go").onclick=async()=>{const o=document.getElementById("out");o.textContent="Researching…";
+document.getElementById("go").onclick=async()=>{const o=document.getElementById("out");o.textContent="Researchingâ€¦";
  try{const r=await fetch("research?app="+encodeURIComponent(document.getElementById("app").value)+(document.getElementById("vf").checked?"&verify=1":""));o.textContent=JSON.stringify(await r.json(),null,1)}
  catch(e){o.textContent="Could not reach the research endpoint. Run python scout.py serve and open this page from it."}};
 ["q","v"].forEach(i=>document.getElementById(i).oninput=table);stats();table();score();
